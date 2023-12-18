@@ -8,6 +8,14 @@ Esta é uma API simples criada com Flask para cadastrar, listar e obter imagens.
 ```bash
 docker run -p 9000:9000 --name miniio -e "MINIO_ACCESS_KEY=minio_access_key" -e "MINIO_SECRET_KEY=minio_secret_key" minio/minio server /data   
 ```
+
+## Para Subir A API
+
+```bash
+make build 
+make run
+
+```
 ## Rotas
 
 ### Cadastrar uma imagem
