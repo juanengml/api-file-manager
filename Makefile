@@ -1,32 +1,34 @@
-# Nome da imagem Docker
-DOCKER_IMAGE_NAME = api-file-manager
+# Nome do arquivo Docker Compose
+DOCKER_COMPOSE_FILE = docker-compose.yml
 
-# Porta em que a aplicação Flask irá rodar no host
-HOST_PORT = 5000
-# ENV = /home/juannascimento/.env
+# Comando para construir e iniciar os serviços
+up:
+	docker compose -f $(DOCKER_COMPOSE_FILE) up -d
 
-# Comando para construir a imagem Docker
+# Comando para parar e remover os serviços
+down:
+	docker compose -f $(DOCKER_COMPOSE_FILE) down
+
+# Comando para construir as imagens
 build:
-	docker build -t $(DOCKER_IMAGE_NAME) .
+	docker compose -f $(DOCKER_COMPOSE_FILE) build
 
-# Comando para executar o contêiner Docker
-run:
-	docker run --rm --name $(DOCKER_IMAGE_NAME) -p $(HOST_PORT):$(HOST_PORT) $(DOCKER_IMAGE_NAME)
+# Comando para visualizar os logs dos serviços
+logs:
+	docker compose -f $(DOCKER_COMPOSE_FILE) logs
 
-# Comando para purgar (remover) o contêiner Docker
-purge:
-	docker stop $$(docker ps -q --filter ancestor=$(DOCKER_IMAGE_NAME)) || true
-	docker rm $$(docker ps -a -q --filter ancestor=$(DOCKER_IMAGE_NAME)) || true
-
+check:
+	python3 -m pytest
 # Alvo padrão
-.DEFAULT_GOAL := run
+.DEFAULT_GOAL := up
 
 # Ajuda
 help:
 	@echo "Uso do Makefile:"
 	@echo ""
-	@echo "  make build     - Construir a imagem Docker da API Flask."
-	@echo "  make run       - Executar o contêiner Docker com a API Flask."
-	@echo "  make purge     - Parar e remover o contêiner Docker."
+	@echo "  make up        - Construir e iniciar os serviços."
+	@echo "  make down      - Parar e remover os serviços."
+	@echo "  make build     - Construir as imagens dos serviços."
+	@echo "  make logs      - Visualizar os logs dos serviços."
 	@echo ""
-	@echo "Certifique-se de ajustar as variáveis DOCKER_IMAGE_NAME e HOST_PORT conforme necessário."
+	@echo "Certifique-se de ajustar a variável DOCKER_COMPOSE_FILE conforme necessário."
