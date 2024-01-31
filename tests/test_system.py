@@ -4,7 +4,7 @@ import requests
 
 # URL base da sua API (substitua localhost pelo endereço correto se estiver em outro lugar)
 base_url = 'http://localhost:5000'
-id_device = '0000001'
+id_device = '123'
 
 def test_send_log():
     url = f'{base_url}/log_device/{id_device}'
