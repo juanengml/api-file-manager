@@ -16,14 +16,14 @@ Esta é uma API criada com Flask para cadastrar, listar e obter imagens. As imag
 ```bash
 make up
 ```
-![Alt text](image-1.png)
+![Alt text](images/image-1.png)
 
 --- 
 
 ```bash
 make down 
 ```
-![Alt text](image-2.png)
+![Alt text](images/image-2.png)
 
 ## Rotas
 ### Consulta de Device
@@ -33,7 +33,7 @@ make down
 curl -X GET http://localhost:5000/get_config/123
 
 ```
-![Alt text](image-3.png)
+![Alt text](images/image-3.png)
 
 ## Cadastro de Device
 **Exemplo de uso:**
@@ -105,7 +105,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
 
 
 ```
-![Alt text](image-4.png)
+![Alt text](images/image-4.png)
 ### Cadastrar uma imagem
 Endpoint: `/cadastrar` (método POST)
 
