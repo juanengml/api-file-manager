@@ -19,7 +19,7 @@ def test_release_listar():
     response = requests.get(f"{BASE_URL}/release")
     assert response.status_code == 200
     # Verifica se a resposta contém uma lista de releases
-    assert "releases" in response.json()
+    assert "status" in response.json()
 
 
 def test_cadastrar():

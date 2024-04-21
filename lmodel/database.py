@@ -17,7 +17,7 @@ class Formater(object):
 
 
 class Database(object):
-    def __init__(self, host="192.168.0.48", port=6379, db=0):
+    def __init__(self, host="redis", port=6379, db=0):
         self.redis_conn = redis.StrictRedis(host=host, port=port, db=db)
 
     def select(self, id_device):

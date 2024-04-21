@@ -61,7 +61,7 @@ def release_listar():
         objects = s3_storage.list_objects(bucket)
         print(objects)
         object = [f"http://localhost:5000/get_release/release/{i}" for i in objects]
-        return {"releases": object}, 200
+        return {"status": object}, 200
     except Exception as err:
         logger.error(f"Erro ao listar releases: {err}")
         return {"status": "Erro ao listar releases"}, 500
