@@ -6,7 +6,7 @@ import json
 class Storage(object):
     def __init__(
         self,
-        uri="http://miniio:9000",
+        uri="http://minio:9000",
         access_key="minio_access_key",
         secret_key="minio_secret_key",
     ):
