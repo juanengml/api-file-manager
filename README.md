@@ -139,3 +139,20 @@ Obtém uma imagem específica do MinIO.
 ```bash
 curl -O http://localhost:5000/get_image/seu-bucket/folder/nome-da-imagem.jpg
 ```
+
+
+----
+
+
+### Pubicando Release 
+
+``` bash
+curl -X POST -F "file=@tests/app.log" http://localhost:5000/release
+```
+
+### Listando Releases
+
+``` bash
+curl -X POST -F "file=@tests/app.log" http://localhost:5000/release
+```
+curl -X GET http://localhost:5000/release
