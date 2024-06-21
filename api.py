@@ -123,10 +123,10 @@ def get_config(id_device):
         if isinstance(config, str):
             return jsonify(config), 404
         else:
-            return {"status": config}, 200
+            return config, 200
     except Exception as err:
         logger.error(f"Erro ao obter configuração do dispositivo: {err}")
-        return {"status": "Erro ao obter configuração do dispositivo"}, 500
+        return "Erro ao obter configuração do dispositivo", 500
 
 
 # Rota para receber os logs do dispositivo
